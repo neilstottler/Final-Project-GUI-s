@@ -2,9 +2,14 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
+import javafx.geometry.Pos;
+
 import javax.swing.JToolBar;
 import java.awt.Button;
 import java.awt.Panel;
@@ -60,19 +65,22 @@ public class TestWindow {
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		Panel panel_4 = new Panel();
+		panel_4.setBackground(Color.DARK_GRAY);
 		frame.getContentPane().add(panel_4, BorderLayout.CENTER);
-		
+
 		//makes button for Start Game
 		JButton btnNewButton_1 = new JButton("Start Game");
+		btnNewButton_1.setHorizontalAlignment(JButton.CENTER);
+		btnNewButton_1.setVerticalAlignment(JButton.CENTER);
 		btnNewButton_1.setAction(startGame);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		panel_4.add(btnNewButton_1);
-		
+
 		//makes button for Exit
 		JButton btnNewButton_2 = new JButton("Exit");
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -81,10 +89,17 @@ public class TestWindow {
 		});
 		btnNewButton_2.setAction(action);
 		panel_4.add(btnNewButton_2);
+
+		Panel panel = new Panel();
+		panel.setBackground(Color.DARK_GRAY);
+		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
+		flowLayout.setAlignment(FlowLayout.TRAILING);
+		flowLayout.setVgap(50);
+		frame.getContentPane().add(panel, BorderLayout.NORTH);
 	}
 
 	//what buttons do
-	
+
 	//Exit Button
 	private class Exit extends AbstractAction {
 		public Exit() {
@@ -96,7 +111,7 @@ public class TestWindow {
 			frame.dispose();
 		}
 	}
-	
+
 	//Start Game Button
 	private class startGame extends AbstractAction {
 		public startGame() {
@@ -105,6 +120,17 @@ public class TestWindow {
 		}
 		//code for thing to do
 		public void actionPerformed(ActionEvent e) {
+			frame.dispose();
+			//new window with message
+			JFrame frame = new JFrame("Clicked");
+			frame.setVisible(true);
+			frame.setSize(600,600);
+			JLabel label = new JLabel("You clicked me!");
+			JPanel panel = new JPanel();
+			frame.add(panel);
+			panel.add(label);
+
+
 		}
 	}
 }
