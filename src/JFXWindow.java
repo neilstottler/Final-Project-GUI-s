@@ -1,6 +1,7 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -32,7 +33,7 @@ public class JFXWindow extends Application {
 		
 		//Create Start Game Button
 		Button btnStartGame = new Button();
-		btnExit.setText("Exit");
+		btnStartGame.setText("Start Game");
 		
 		//create action for Start Game button
 		btnStartGame.setOnAction(new EventHandler<ActionEvent>() {
@@ -45,9 +46,10 @@ public class JFXWindow extends Application {
 		});
 		
 		//add button(s) to hBox
-		hBox.getChildren().add(btnExit);
 		hBox.getChildren().add(btnStartGame);
+		hBox.getChildren().add(btnExit);
 		
+		hBox.setAlignment(Pos.CENTER);
 		
 		//create BorderPane with hBox
 		BorderPane pane = new BorderPane();
