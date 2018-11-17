@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text; 
 import javafx.stage.Stage; 
 
@@ -41,7 +42,7 @@ public class JFXWindow extends Application {
 			//What Button Start Game Does
 			@Override 
 			public void handle(ActionEvent e) {
-				
+				//insert stuff here
 			}
 		});
 		
@@ -49,14 +50,21 @@ public class JFXWindow extends Application {
 		hBox.getChildren().add(btnStartGame);
 		hBox.getChildren().add(btnExit);
 		
+		//align buttons to center
 		hBox.setAlignment(Pos.CENTER);
+		
+		//set background color
+		hBox.setStyle("-fx-background-color: #000000;");
+		
+		//set spacing between buttons
+		hBox.setSpacing(100);
 		
 		//create BorderPane with hBox
 		BorderPane pane = new BorderPane();
 		pane.setCenter(hBox);
 		
-		//make Scene with pane
-		Scene scene = new Scene(pane, 500, 500);
+		//make Scene with pane, width, height
+		Scene scene = new Scene(pane, 500, 500, Color.BLACK);
 		
 		//create final stage for scene to be displayed
 		primaryStage.setTitle("Game Menu");
