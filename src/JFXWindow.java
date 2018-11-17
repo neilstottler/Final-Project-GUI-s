@@ -20,7 +20,12 @@ public class JFXWindow extends Application {
 		
 		//Create Exit Button
 		Button btnExit = new Button();
-		btnExit.setText("Exit");
+		btnExit.setText("Exit  Menu");
+		//Change Exit Button Color, padding, font
+		btnExit.setStyle("-fx-background-color: #ffffff; -fx-padding: 10; -fx-font-size: 2em;"
+				+ 
+				//change border color & width
+				"-fx-border-color: #ffffff; -fx-border-width: 5px; ");
 		
 		//create action for Exit button
 		btnExit.setOnAction(new EventHandler<ActionEvent>() {
@@ -35,6 +40,11 @@ public class JFXWindow extends Application {
 		//Create Start Game Button
 		Button btnStartGame = new Button();
 		btnStartGame.setText("Start Game");
+		//Change Start Game Button Color, padding, font
+		btnStartGame.setStyle("-fx-background-color: #ffffff; -fx-padding: 10; -fx-font-size: 2em;"
+				+ 
+				//change border color & width
+				"-fx-border-color: #ffffff; -fx-border-width: 5px; ");
 		
 		//create action for Start Game button
 		btnStartGame.setOnAction(new EventHandler<ActionEvent>() {
