@@ -27,6 +27,11 @@ public class JFXWindow extends Application {
 				//change border color & width
 				"-fx-border-color: #ffffff; -fx-border-width: 5px; ");
 
+		/**
+		 *  
+		 * What Happens when Exit is pressed
+		 * 
+		 */
 		//create action for Exit button
 		btnExit.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -46,16 +51,48 @@ public class JFXWindow extends Application {
 				//change border color & width
 				"-fx-border-color: #ffffff; -fx-border-width: 5px; ");
 
+		/**
+		 * 
+		 * What Happens when Start Game is pressed
+		 * 
+		 */
 		//create action for Start Game button
 		btnStartGame.setOnAction(new EventHandler<ActionEvent>() {
+			
+			//TODO
+			//create hBox for scene when Start Pressed
+			HBox hBox2 = new HBox();
+
+			//create border for after button pressed
 			BorderPane pane2 = new BorderPane();
-			Scene scene2 = new Scene(pane2, 500,500);
+
+			//set scene when button pressed
+			Scene scene2 = new Scene(pane2, 800,800);
+			
 			//What Button Start Game Does
 			@Override 
 			public void handle(ActionEvent e) {
+				
+				//set scene to scene when button pressed
 				primaryStage.setScene(scene2);
-			}
-		});
+				primaryStage.show();
+				
+				//create button & set settings  
+				Button btnTest = new Button("Test Button");
+				btnTest.setText("Test");
+				btnTest.setStyle("-fx-background-color: #ffffff; -fx-padding: 10; -fx-font-size: 2em;-fx-border-color: #ffffff; -fx-border-width: 5px; ");
+				
+				//add button to hbox
+				hBox2.getChildren().add(btnTest);
+
+				//set pane2 (hBox) to center
+				pane2.setCenter(hBox2);
+				
+				//align buttons to center
+				hBox2.setAlignment(Pos.CENTER);
+
+				
+		}});
 
 		//add button(s) to hBox
 		hBox.getChildren().add(btnStartGame);
@@ -75,7 +112,7 @@ public class JFXWindow extends Application {
 		pane.setCenter(hBox);
 
 		//make Scene with pane, width, height
-		Scene scene = new Scene(pane, 500, 500);
+		Scene scene = new Scene(pane, 800, 800);
 		
 
 		//create final stage for scene to be displayed
