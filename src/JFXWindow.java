@@ -42,6 +42,10 @@ public class JFXWindow extends Application {
 			}
 		});
 
+		/**
+		 * End Exit button
+		 */
+		
 		//Create Start Game Button
 		Button btnStartGame = new Button();
 		btnStartGame.setText("Start Game");
@@ -51,11 +55,13 @@ public class JFXWindow extends Application {
 				//change border color & width
 				"-fx-border-color: #ffffff; -fx-border-width: 5px; ");
 
+
 		/**
 		 * 
 		 * What Happens when Start Game is pressed
 		 * 
 		 */
+		
 		//create action for Start Game button
 		btnStartGame.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -91,9 +97,26 @@ public class JFXWindow extends Application {
 				//align buttons to center
 				hBox2.setAlignment(Pos.CENTER);
 
+				/**
+				 * What Test button does
+				 */
+				btnTest.setOnAction(new EventHandler<ActionEvent>() {
+					
+					@Override 
+					public void handle(ActionEvent e) {
+						
+						primaryStage.setScene(scene);
+						
+				}});
+				/**
+				 * end what Test button does
+				 */
 				
 		}});
 
+		/**
+		 * End Start Game button
+		 */
 		//add button(s) to hBox
 		hBox.getChildren().add(btnStartGame);
 		hBox.getChildren().add(btnExit);
