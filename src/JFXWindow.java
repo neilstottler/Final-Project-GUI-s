@@ -13,6 +13,8 @@ import javafx.stage.Stage;
 
 public class JFXWindow extends Application {
 
+	public Scene scene;
+
 	@Override public void start(Stage primaryStage) {
 
 		//hBox is created
@@ -20,7 +22,7 @@ public class JFXWindow extends Application {
 
 		//Create Exit Button
 		Button btnExit = new Button();
-		btnExit.setText("Exit  Menu");
+		btnExit.setText("Exit Game");
 		//Change Exit Button Color, padding, font
 		btnExit.setStyle("-fx-background-color: #ffffff; -fx-padding: 10; -fx-font-size: 2em;"
 				+ 
@@ -45,7 +47,7 @@ public class JFXWindow extends Application {
 		/**
 		 * End Exit button
 		 */
-		
+
 		//Create Start Game Button
 		Button btnStartGame = new Button();
 		btnStartGame.setText("Start Game");
@@ -56,66 +58,69 @@ public class JFXWindow extends Application {
 				"-fx-border-color: #ffffff; -fx-border-width: 5px; ");
 
 
-		/**
-		 * 
-		 * What Happens when Start Game is pressed
-		 * 
-		 */
 		
-		//create action for Start Game button
-		btnStartGame.setOnAction(new EventHandler<ActionEvent>() {
-			
-			//TODO
-			//create hBox for scene when Start Pressed
-			HBox hBox2 = new HBox();
+		HBox hBox2 = new HBox();
 
-			//create border for after button pressed
-			BorderPane pane2 = new BorderPane();
+		//create border for after button pressed
+		BorderPane pane2 = new BorderPane();
 
-			//set scene when button pressed
-			Scene scene2 = new Scene(pane2, 800,800);
+		//create scene2
+		Scene scene2 = new Scene(pane2, 800,800);
+		
+		//create Test button
+		Button btnMainMenu = new Button("Main Menu");
+		btnMainMenu.setText("Main Menu");
+		btnMainMenu.setStyle("-fx-background-color: #ffffff; -fx-padding: 10; -fx-font-size: 2em;-fx-border-color: #ffffff; -fx-border-width: 5px; ");
+		
+		//add button to hbox2
+		hBox2.getChildren().add(btnMainMenu);
+
+		//set pane2 (hBox2) to center
+		pane2.setCenter(hBox2);
+		
+		//align button to top right
+		hBox2.setAlignment(Pos.TOP_RIGHT);
+		
+		//set background color
+		hBox2.setStyle("-fx-background-color: #000000;");
+
+		/**
+		 * What Test button does
+		 */
+		btnMainMenu.setOnAction(new EventHandler<ActionEvent>() {
 			
-			//What Button Start Game Does
 			@Override 
 			public void handle(ActionEvent e) {
 				
+				primaryStage.setScene(scene);
+				
+		}});
+		/**
+		 * end Test button
+		 */
+		
+		/**
+		 * Start Game button
+		 */
+
+		//create action for Start Game button
+		btnStartGame.setOnAction(new EventHandler<ActionEvent>() {
+			//What Button Start Game Does
+			@Override 
+			public void handle(ActionEvent e) {
+
 				//set scene to scene when button pressed
 				primaryStage.setScene(scene2);
 				primaryStage.show();
-				
-				//create button & set settings  
-				Button btnTest = new Button("Test Button");
-				btnTest.setText("Test");
-				btnTest.setStyle("-fx-background-color: #ffffff; -fx-padding: 10; -fx-font-size: 2em;-fx-border-color: #ffffff; -fx-border-width: 5px; ");
-				
-				//add button to hbox
-				hBox2.getChildren().add(btnTest);
 
-				//set pane2 (hBox) to center
-				pane2.setCenter(hBox2);
-				
-				//align buttons to center
-				hBox2.setAlignment(Pos.CENTER);
-
-				/**
-				 * What Test button does
-				 */
-				btnTest.setOnAction(new EventHandler<ActionEvent>() {
-					
-					@Override 
-					public void handle(ActionEvent e) {
-						
-						primaryStage.setScene(scene);
-						
-				}});
-				/**
-				 * end what Test button does
-				 */
-				
-		}});
+			}});
 
 		/**
 		 * End Start Game button
+		 */
+		
+		/**
+		 * Start Menu
 		 */
 		//add button(s) to hBox
 		hBox.getChildren().add(btnStartGame);
@@ -135,8 +140,8 @@ public class JFXWindow extends Application {
 		pane.setCenter(hBox);
 
 		//make Scene with pane, width, height
-		Scene scene = new Scene(pane, 800, 800);
-		
+		scene = new Scene(pane, 800, 800); 
+
 
 		//create final stage for scene to be displayed
 		primaryStage.setTitle("Game Menu");
